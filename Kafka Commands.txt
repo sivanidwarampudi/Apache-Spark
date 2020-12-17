@@ -1,0 +1,23 @@
+Open cmd in windows run these commands seperately
+Runkafka broker and zookeeper in different prompts
+producer and consumer in seperate prompts
+
+Start Zookeeper
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+Start Kafka Broker
+bin\windows\kafka-server-start.bat config/server.properties
+
+Create topic
+bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic kafka(you can name whatever you want here)
+
+List topic
+bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+Start Producer
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic kafka
+
+Start Consumer
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic kafka --from-beginning
+
+Start Sending message in producer prompt the result gets reflected in consumer prompt
